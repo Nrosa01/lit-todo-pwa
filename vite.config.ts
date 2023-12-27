@@ -5,6 +5,21 @@ import { VitePWA } from 'vite-plugin-pwa'
 const base = process.env.VITE_BASE ?? "/"
 
 export default defineConfig({
-  plugins: [litCss(), VitePWA({ registerType: 'autoUpdate', devOptions: { enabled: true } })],
+  plugins: [litCss(), VitePWA({
+    registerType: 'autoUpdate',
+    devOptions: { enabled: true },
+    manifest:
+    {
+      icons:
+        [
+          {
+            src: "/icon.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable"
+          }
+        ]
+    },
+  })],
   base: base
 })
