@@ -1,6 +1,10 @@
 import { html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
 
 @customElement('my-element')
 export class MyElement extends TailwindElement {
@@ -32,7 +36,7 @@ export class MyElement extends TailwindElement {
 
   render() {
     return html`
-    <div class="flex flex-col items-center min-h-screen">
+    <div class="flex flex-col items-center min-h-screen sl-theme-dark">
       <div class="flex flex-col items-center justify-center m-0 font-mono">
         <h1>My Todo List</h1>  
         <ul class="w-full px-0 mt-1">
