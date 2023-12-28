@@ -69,7 +69,7 @@ export class MyElement extends TailwindElement {
       
       
           <form @submit="${this.addTodo}" class="flex w-full justify-between">
-            <sl-input class="w-full" pill placeholder="Introduce your note" @sl-change=${(e: any) => this.todoText = e.target.value}></sl-input>
+            <sl-input class="w-full" pill .value=${this.todoText} placeholder="Introduce your note" @sl-change=${(e: any) => this.todoText = e.target.value}></sl-input>
             <sl-button class="ml-4" pill type=submit>Add</sl-button>
           </form>
         </div>
