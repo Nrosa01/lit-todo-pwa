@@ -9,7 +9,7 @@ export default defineConfig({
   [
     litCss(),
     VitePWA({
-    registerType: 'autoUpdate',
+    registerType: 'prompt',
     devOptions: { enabled: false },
     manifest:
     {
