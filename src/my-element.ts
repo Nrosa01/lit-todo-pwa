@@ -1,10 +1,24 @@
-import { html } from 'lit'
+import { css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 import cross from "/x-circle.svg"
 
 @customElement('my-element')
 export class MyElement extends TailwindElement {
+  static styles = css`
+    .rounded-card::part(base) {
+    border-radius: 9999px;
+  }
+
+  .rounded-card::part(body) {
+    padding: 0.5rem 1rem;
+  }
+
+  .icon-button::part(base) {
+    padding: 0rem;
+  }
+  `;
+
   @property({ type: Array }) todos: string[] = [];
 
   @property({ type: String }) todoText: string = '';
@@ -33,16 +47,16 @@ export class MyElement extends TailwindElement {
 
   render() {
     return html`
-    <div class="flex flex-col items-center min-h-screen sl-theme-dark">
-      <div class="flex flex-col items-center justify-center m-0 font-mono">
+    <div class="flex flex-col items-center min-h-screen px-4 sl-theme-dark">
+      <div class="flex flex-col items-center justify-center m-0 font-mono max-w-[240rem]">
         <h1>My Todo List</h1>  
         <ul class="w-full px-0 mt-1">
-            ${this.todos.map((todo, index) => 
-              html`
-                <sl-card class="font-bold w-full my-2 rounded-full">
-                  <div class="flex w-full justify-between">
+            ${this.todos.map((todo, index) =>
+      html`
+                <sl-card class="font-bold w-full my-2 rounded-full rounded-card">
+                  <div class="flex w-full justify-between items-center">
                     ${todo} 
-                    <sl-icon-button src=${cross} class="p-0 m-0" @click=${() => this.deleteTodo(index)}></sl-icon-button>
+                    <sl-icon-button src=${cross} class="p-0 m-0 icon-button" @click=${() => this.deleteTodo(index)}></sl-icon-button>
                   </div>
                 </sl-card>
             `)}
