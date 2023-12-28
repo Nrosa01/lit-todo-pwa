@@ -1,5 +1,5 @@
 import { css, html } from 'lit'
-import { customElement, property, state } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 import cross from "/x-circle.svg"
 
@@ -42,6 +42,7 @@ export class MyElement extends TailwindElement {
     if (!this.todoText) return;
     this.todos = [...this.todos, this.todoText];
     this.updateLocalStorage()
+    this.todoText = '';
   }
 
   deleteTodo(index: number) {
