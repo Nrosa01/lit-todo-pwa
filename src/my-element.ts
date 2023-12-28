@@ -7,7 +7,7 @@ import cross from "/x-circle.svg"
 export class MyElement extends TailwindElement {
   static styles = css`
     .rounded-card::part(base) {
-    border-radius: 9999px;
+    border-radius: 20px;
   }
 
   .rounded-card::part(body) {
@@ -20,6 +20,10 @@ export class MyElement extends TailwindElement {
 
   .icon-button::part(base):hover {
     color: #fff;
+  }
+
+  ul{
+    list-style-type: none;
   }
   `;
 
@@ -53,18 +57,20 @@ export class MyElement extends TailwindElement {
   render() {
     return html`
     <div class="flex flex-col items-center min-h-screen px-4 sl-theme-dark">
-      <div class="flex flex-col items-center justify-center m-0 font-mono max-w-[240rem]">
+      <div class="flex flex-col items-center justify-center m-0 font-mono ] max-w-[40rem] w-full">
         <h1>My Todo List</h1>  
         <ul class="w-full px-0 mt-1">
             ${this.todos.map((todo, index) =>
       html`
-                <sl-card class="font-bold w-full my-2 rounded-full rounded-card">
-                  <div class="flex w-full justify-between items-center">
-                    ${todo} 
-                    <sl-icon-button src=${cross} class="p-0 m-0 icon-button" @click=${() => this.deleteTodo(index)}></sl-icon-button>
-                  </div>
-                </sl-card>
-            `)}
+          <li>
+            <sl-card class="font-bold w-full my-2 rounded-full rounded-card">
+              <div class="flex w-full justify-between items-center">
+                <div class="pr-4">${todo}</div>
+                <sl-icon-button src=${cross} class="p-0 m-0 icon-button" @click=${() => this.deleteTodo(index)}></sl-icon-button>
+              </div>
+            </sl-card>
+          </li>
+        `)}
           </ul>
       
       
