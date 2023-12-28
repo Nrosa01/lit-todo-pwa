@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import litCss from 'vite-plugin-lit-css'
 import { VitePWA } from 'vite-plugin-pwa'
 
-const base = process.env.VITE_BASE ?? ""
+const base = process.env.VITE_BASE ?? "/"
 
 export default defineConfig({
   plugins: [litCss(), VitePWA({
@@ -13,7 +13,7 @@ export default defineConfig({
       icons:
         [
           {
-            src: base + "/icon.png",
+            src: "./icon.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable"
