@@ -37,8 +37,8 @@ export class MyElement extends TailwindElement {
         <h1>My Todo List</h1>  
         <ul class="w-full px-0 mt-1">
             ${this.todos.map(todo => html`
-            <div class="flex w-full justify-between outline-2 outline-dashed outline-slate-800 rounded-full my-4">
-              <sl-menu-item class="bg-slate-800 rounded-full font-bold">${todo}</sl-menu-item>
+            <div class="flex w-full justify-between bg-slate-700 rounded-full my-4">
+              <sl-menu-item class="rounded-full font-bold">${todo}</sl-menu-item>
               <sl-icon-button class="p-1" name="x-circle" @click=${() => this.deleteTodo(todo)}></sl-icon-button>
             </div>
             `)}
