@@ -7,7 +7,7 @@ const base = process.env.VITE_BASE ?? "/"
 export default defineConfig({
   plugins: [litCss(), VitePWA({
     registerType: 'autoUpdate',
-    devOptions: { enabled: true },
+    devOptions: { enabled: false },
     manifest:
     {
       icons:
