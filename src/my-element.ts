@@ -1,10 +1,6 @@
 import { html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
-import '@shoelace-style/shoelace/dist/components/input/input.js';
 
 @customElement('my-element')
 export class MyElement extends TailwindElement {
