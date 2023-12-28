@@ -1,5 +1,5 @@
 import { html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 
 @customElement('my-element')
@@ -8,14 +8,21 @@ export class MyElement extends TailwindElement {
 
   @property({ type: String }) todoText: string = '';
 
+  @state() count = 0;
+
   connectedCallback() {
     super.connectedCallback();
     const existingTodos = localStorage.getItem('todos');
     this.todos = JSON.parse(existingTodos as string) || [];
+    const existingCount = localStorage.getItem('count');
+    this.count = JSON.parse(existingCount as string) || 0;
+    this.count++;
+    this.updateLocalStorage()
   }
 
   updateLocalStorage() {
     localStorage.setItem('todos', JSON.stringify(this.todos));
+    localStorage.setItem('count', JSON.stringify(this.count));
   }
 
   addTodo(event: Event) {
@@ -34,7 +41,7 @@ export class MyElement extends TailwindElement {
     return html`
     <div class="flex flex-col items-center min-h-screen sl-theme-dark">
       <div class="flex flex-col items-center justify-center m-0 font-mono">
-        <h1>My Todo List</h1>  
+        <h1>My Todo List ${this.count}</h1>  
         <ul class="w-full px-0 mt-1">
             ${this.todos.map(todo => html`
             <div class="flex w-full justify-between bg-slate-700 rounded-full my-4">
