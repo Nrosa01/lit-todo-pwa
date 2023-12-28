@@ -1,6 +1,7 @@
 import { html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
+import cross from "/x-circle.svg" 
 
 @customElement('my-element')
 export class MyElement extends TailwindElement {
@@ -46,7 +47,7 @@ export class MyElement extends TailwindElement {
             ${this.todos.map(todo => html`
             <div class="flex w-full justify-between bg-slate-700 rounded-full my-4">
               <sl-menu-item class="rounded-full font-bold">${todo}</sl-menu-item>
-              <sl-icon-button class="p-1" name="x-circle" @click=${() => this.deleteTodo(todo)}></sl-icon-button>
+              <sl-icon-button src=${cross} class="p-1" @click=${() => this.deleteTodo(todo)}></sl-icon-button>
             </div>
             `)}
           </ul>
