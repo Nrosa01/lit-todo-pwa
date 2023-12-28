@@ -17,6 +17,10 @@ export class MyElement extends TailwindElement {
   .icon-button::part(base) {
     padding: 0rem;
   }
+
+  .icon-button::part(base):hover {
+    color: #fff;
+  }
   `;
 
   @property({ type: Array }) todos: string[] = [];
