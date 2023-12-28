@@ -22,12 +22,12 @@ export class MyElement extends TailwindElement {
     event.preventDefault();
     if (!this.todoText) return;
     this.todos = [...this.todos, this.todoText];
-    updateLocalStorage()
+    this.updateLocalStorage()
   }
 
   deleteTodo(todo: string) {
     this.todos = this.todos.filter(t => t !== todo);
-    updateLocalStorage()
+    this.updateLocalStorage()
   }
 
   render() {
