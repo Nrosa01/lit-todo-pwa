@@ -5,28 +5,6 @@ import cross from "/x-circle.svg"
 
 @customElement('my-element')
 export class MyElement extends TailwindElement {
-  static styles = css`
-    .rounded-card::part(base) {
-    border-radius: 20px;
-  }
-
-  .rounded-card::part(body) {
-    padding: 0.5rem 1rem;
-  }
-
-  .icon-button::part(base) {
-    padding: 0rem;
-  }
-
-  .icon-button::part(base):hover {
-    color: #fff;
-  }
-
-  ul{
-    list-style-type: none;
-  }
-  `;
-
   @property({ type: Array }) todos: string[] = [];
 
   @property({ type: String }) todoText: string = '';
@@ -59,14 +37,14 @@ export class MyElement extends TailwindElement {
     <div class="flex flex-col items-center min-h-screen px-4 sl-theme-dark">
       <div class="flex flex-col items-center justify-center m-0 font-mono ] max-w-[40rem] w-full">
         <h1>My Todo List</h1>  
-        <ul class="w-full px-0 mt-1">
+        <ul class="w-full px-0 mt-1 list-none">
             ${this.todos.map((todo, index) =>
       html`
           <li>
-            <sl-card class="font-bold w-full my-2 rounded-full rounded-card">
+            <sl-card class="font-bold w-full my-2 rounded-full [&::part(base)]:rounded-[20px] [&::part(body)]:py-2 [&::part(body)]:px-4">
               <div class="flex w-full justify-between items-center">
                 <div class="pr-4">${todo}</div>
-                <sl-icon-button src=${cross} class="p-0 m-0 icon-button" @click=${() => this.deleteTodo(index)}></sl-icon-button>
+                <sl-icon-button src=${cross} class="p-0 m-0 [&::part(base)]:hover:text-white [&::part(base)]:p-0" @click=${() => this.deleteTodo(index)}></sl-icon-button>
               </div>
             </sl-card>
           </li>
